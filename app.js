@@ -5,21 +5,20 @@ const sendToServer = (values) => {
 }
 
 const toggle = (field) => {
-    setTimeout(() => {
-        const index = values.indexOf(field);
+    const index = values.indexOf(field);
 
-        if (index == -1) {
-            if (values.length == 2) {
-                const removedField = values.shift();
-                document.getElementById(removedField).checked = false;
-            }
-
-            values.push(field);
-        } else {
-            values.splice(index, 1);
-
+    if (index == -1) {
+        if (values.length == 2) {
+            const removedField = values.shift();
+            document.getElementById(removedField).checked = false;
         }
 
+        values.push(field);
+    } else {
+        values.splice(index, 1);
+    }
+
+    setTimeout(() => {
         const response = sendToServer(values);
 
         const fields = [
@@ -33,6 +32,6 @@ const toggle = (field) => {
             document.getElementById(f).checked = isChecked;
         });
         
-    }, 1000)
+    }, 5000)
 }
 
