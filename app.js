@@ -1,7 +1,5 @@
 let states = [];
 
-let timeout = null;
-
 const sendToServer = (values) => {
     return values;
 }
@@ -23,10 +21,8 @@ const toggle = (field) => {
     }
 
     states = [...values];
-
-    clearTimeout(timeout);
-
-    timeout = setTimeout(() => {
+    
+    setTimeout(() => {
         const response = sendToServer(values);
 
         const fields = [
@@ -35,11 +31,12 @@ const toggle = (field) => {
             'cheap',
         ];
 
-        fields.forEach(f => {
-            const isChecked = response.indexOf(f) != -1;
-            document.getElementById(f).checked = isChecked;
-        });
-        
-    }, 1000)
+        if (states === response) {
+            fields.forEach(f => {
+                const isChecked = response.indexOf(f) != -1;
+                document.getElementById(f).checked = isChecked;
+            });
+        }
+    }, 1000);
 }
 
