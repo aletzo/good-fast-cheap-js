@@ -1,11 +1,11 @@
-let states = [];
+let state = [];
 
 const sendToServer = (values) => {
     return values;
 }
 
 const toggle = (field) => {
-    const values = [...states];
+    const values = [...state];
 
     const index = values.indexOf(field);
 
@@ -20,7 +20,7 @@ const toggle = (field) => {
         values.splice(index, 1);
     }
 
-    states = [...values];
+    state = [...values];
     
     setTimeout(() => {
         const response = sendToServer(values);
@@ -31,7 +31,9 @@ const toggle = (field) => {
             'cheap',
         ];
 
-        if (states === response) {
+        // [1] === [1] => false, so we can't compare
+        // arrays, so we convert them to strings
+        if (state.join(',') === response.join(',')) {
             fields.forEach(f => {
                 const isChecked = response.indexOf(f) != -1;
                 document.getElementById(f).checked = isChecked;
@@ -39,4 +41,3 @@ const toggle = (field) => {
         }
     }, 1000);
 }
-

@@ -2,45 +2,39 @@
 <html>
 <head>
     <meta charset="utf-8">
-
 </head>
 <body>
 
-        <div>
+    <label>
+        <input type="checkbox" 
+                id="good"
+                onChange="toggle(event.target.value)"
+                value="good"
+        />
+        Good
+    </label>
 
-            <label>
-                <input type="checkbox" 
-                        id="good"
-                        onChange="toggle(event.target.value)"
-                        value="good"
-                />
-                Good
-            </label>
+    <br>
 
-            <br />
+    <label>
+        <input type="checkbox" 
+                id="fast"
+                onChange="toggle(event.target.value)"
+                value="fast"
+        />
+        Fast
+    </label>
 
-            <label>
-                <input type="checkbox" 
-                        id="fast"
-                        onChange="toggle(event.target.value)"
-                        value="fast"
-                />
-                Fast
-            </label>
+    <br>
 
-            <br />
-
-            <label>
-                <input type="checkbox" 
-                        id="cheap"
-                        onChange="toggle(event.target.value)"
-                        value="cheap"
-                />
-                Cheap
-            </label>
-
-        </div>
-
+    <label>
+        <input type="checkbox" 
+                id="cheap"
+                onChange="toggle(event.target.value)"
+                value="cheap"
+        />
+        Cheap
+    </label>
         
     <script src="app.js"></script>
 
