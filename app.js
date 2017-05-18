@@ -1,5 +1,7 @@
 let states = [];
 
+let timeout = null;
+
 const sendToServer = (values) => {
     return values;
 }
@@ -22,7 +24,9 @@ const toggle = (field) => {
 
     states = [...values];
 
-    setTimeout(() => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
         const response = sendToServer(values);
 
         const fields = [
